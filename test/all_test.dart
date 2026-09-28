@@ -4,6 +4,7 @@ import 'test_digest_authentication.dart' as DigestAuthentication;
 import 'test_normalize_target.dart' as NormalizeTarget;
 import 'test_options_response.dart' as OptionsResponse;
 import 'test_parser.dart' as Parser;
+import 'test_replaced_ua.dart' as ReplacedUa;
 import 'test_websocket.dart' as Websocket;
 import 'test_websocket_ping.dart' as WebsocketPing;
 
@@ -18,6 +19,9 @@ void main() {
     func();
   }
   for (Function func in Parser.testFunctions) {
+    func();
+  }
+  for (Function func in ReplacedUa.testFunctions) {
     func();
   }
   for (Function func in NormalizeTarget.testFunctions) {
