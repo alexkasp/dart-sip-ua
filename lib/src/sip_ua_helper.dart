@@ -1165,6 +1165,19 @@ class WebSocketSettings {
   ///
   /// Null (the default) means no pings are sent — previous behaviour.
   Duration? pingInterval;
+
+  /// How long to wait for the WebSocket handshake on dart:io.
+  ///
+  /// Null (the default) adds no deadline. A second connect() is then still
+  /// allowed to overlap the first, which is what recovers a handshake the
+  /// operating system never finishes. When set, a second connect() waits
+  /// until this attempt finishes or times out. On timeout the socket reports
+  /// onClose so the usual recovery path runs, and that onClose is the one
+  /// connect() itself did not emit: the disconnect() a new connect() uses to
+  /// drop the previous socket still fails transactions that were pending on
+  /// it. A handshake that completes after its impl was replaced is closed
+  /// and ignored whether or not a timeout is set.
+  Duration? connectTimeout;
 }
 
 class TcpSocketSettings {

@@ -6,6 +6,7 @@ import 'test_options_response.dart' as OptionsResponse;
 import 'test_parser.dart' as Parser;
 import 'test_replaced_ua.dart' as ReplacedUa;
 import 'test_websocket.dart' as Websocket;
+import 'test_websocket_overlap.dart' as WebsocketOverlap;
 import 'test_websocket_ping.dart' as WebsocketPing;
 
 void main() {
@@ -31,6 +32,9 @@ void main() {
     func();
   }
   for (Function func in WebsocketPing.testFunctions) {
+    func();
+  }
+  for (Function func in WebsocketOverlap.testFunctions) {
     func();
   }
   //for (Function _func in Websocket.testFunctions) {
