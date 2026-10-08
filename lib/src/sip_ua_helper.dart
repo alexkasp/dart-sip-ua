@@ -1141,6 +1141,7 @@ class WebSocketSettings {
   ///
   /// Null (the default) means no pings are sent — previous behaviour.
   Duration? pingInterval;
+
   /// How long to wait for the WebSocket handshake on dart:io.
   ///
   /// Null (the default) adds no deadline. A second connect() is then still
